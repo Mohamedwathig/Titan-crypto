@@ -1,0 +1,454 @@
+:root {
+    --text-primary: #000;
+    --bgPrimary: #fff;
+    --bgSecondary: #F9F9F9;
+    --pink: #d4af37; /* CHANGED: Blue to gold */
+    --light-blue: #e6f7ff;
+    --border: #d9d9d9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a:hover {
+    color: var(--pink) !important;
+}
+
+.app {
+    display: flex;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.navbar {
+    flex: 0.2;
+    background-color: rgb(0, 0, 0);
+    min-width: 200px;
+}
+
+.main {
+    flex: 0.8;
+    width: 100%;
+    overflow-y: auto;
+}
+
+.routes {
+    padding: 20px;
+}
+
+.nav-container {
+    position: fixed;
+    left: 0;
+    height: 100vh;
+    width: 20%;
+    background-color: rgb(0, 0, 0);
+    z-index: 10;
+    overflow-y: auto; /* Add this for scrolling if needed */
+}
+
+.logo-container {
+    background-color: #000000;
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between; /* This will space logo and button */
+}
+
+.logo {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo a {
+    color: white;
+    text-decoration: none;
+}
+
+/* HIDE THE MENU BUTTON ON LARGE SCREENS */
+.menu-control-container {
+    display: none !important;
+}
+
+/* MOBILE STYLES - 800px and below */
+@media screen and (max-width: 800px) {
+    .app {
+        flex-direction: column;
+        height: 100vh; /* Keep full height */
+    }
+
+    .navbar {
+        flex: 0;
+        min-width: auto;
+        width: 100%;
+    }
+
+    .main {
+        flex: 1;
+        margin-top: 0; /* Remove margin-top */
+        padding-top: 60px; /* Add padding instead of margin */
+        width: 100%;
+        height: calc(100vh - 60px); /* Calculate remaining height */
+    }
+
+    .nav-container {
+        position: fixed;
+        top: 0;
+        height: 60px;
+        width: 100%;
+        z-index: 100;
+    }
+
+    /* SHOW THE MENU BUTTON ONLY ON MOBILE */
+    .menu-control-container {
+        display: block !important;
+        background: transparent;
+        border: none;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    /* Hide the normal menu on mobile when collapsed */
+    .nav-container .ant-menu {
+        display: none;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: rgb(0, 0, 0);
+        z-index: 99;
+    }
+
+    /* Show menu when active */
+    .nav-container.active-menu .ant-menu {
+        display: block;
+    }
+
+    /* Keep logo visible */
+    .logo-container {
+        height: 60px;
+        padding: 10px 20px;
+    }
+
+    .logo {
+        margin: 0;
+    }
+
+    .home-title {
+        font-size: 1.4rem !important;
+    }
+
+    .show-more {
+        font-size: 1.3rem !important;
+    }
+}
+
+/* Very small screens */
+@media screen and (max-width: 500px) {
+    .nav-container {
+        height: 50px;
+    }
+    
+    .main {
+        padding-top: 50px;
+        height: calc(100vh - 50px);
+    }
+    
+    .logo-container {
+        height: 50px;
+        padding: 8px 15px;
+    }
+    
+    .routes {
+        padding: 10px;
+    }
+}
+
+/* Rest of your existing CSS remains the same */
+.loader {
+    height: 81vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.coin-detail-container {
+    margin: 30px;
+}
+
+.coin-heading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-bottom: 1px solid var(--border);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    gap: 10px;
+}
+
+.coin-heading-container .coin-name {
+    font-weight: 900;
+    color: var(--pink); /* NOW GOLD */
+}
+
+.coin-heading-container p {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin-bottom: 20px;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+.stats-container h2 {
+    font-weight: 700;
+    font-size: 1.4rem;
+    margin-top: 20px;
+    color: var(--pink); /* NOW GOLD */
+}
+
+.coin-details-heading {
+    font-weight: 700 !important;
+    margin-top: 20px !important;
+    color: var(--pink) !important; /* NOW GOLD */
+}
+
+.coin-stats {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    font-size: 1rem;
+    opacity: 0.9;
+    padding: 20px;
+}
+
+.coin-stats-name {
+    display: flex;
+    gap: 10px;
+    font-size: 1rem;
+}
+
+.stats {
+    font-weight: 800;
+}
+
+.coin-value-statistics-heading p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.coin-desc-link {
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+    padding-top: 20px;
+}
+
+.coin-desc-link h2 {
+    font-weight: 700;
+    color: var(--pink); /* NOW GOLD */
+}
+
+.coin-desc-link p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.coin-desc-link a {
+    color: var(--pink); /* NOW GOLD */
+}
+
+.coin-desc-link h3 {
+    font-weight: 700;
+}
+
+.coin-desc {
+    flex: 0.5;
+}
+
+.coin-links {
+    padding: 0px 20px;
+    flex: 0.5;
+}
+
+.coin-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    padding: 20px;
+}
+
+.link-name {
+    text-transform: capitalize;
+    font-size: 1rem;
+}
+
+.coin-link a {
+    color: var(--pink); /* NOW GOLD */
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.coin-link:hover,
+.coin-stats:hover {
+    background-color: var(--bgSecondary);
+}
+
+@media screen and (max-width:1000px) {
+    .stats-container {
+        flex-direction: column;
+    }
+
+    .coin-desc-link {
+        flex-direction: column;
+    }
+
+    .stats-container h2 {
+        margin-top: 0px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .coin-links {
+        padding: 0px;
+    }
+
+    .coin-detail-container {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .heading {
+        margin-top: 20px;
+    }
+}
+
+.select-news {
+    width: 180px;
+}
+
+.news-card {
+    min-height: 300px !important;
+}
+
+.news-image-container { 
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.news-image {
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+}
+
+.news-title {
+    width: 100%;
+}
+
+.news-image-container .img {
+    width: 100px;
+    height: 100px;
+}
+
+.news-card p {
+    color: black;
+    margin: 10px 0px !important;
+}
+
+.provider-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.provider-name {
+    margin-left: 10px;
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    color: #d4af37; /* CHANGED: Blue to gold */
+}
+
+.chart-title {
+    color: #d4af37 !important; /* CHANGED: Blue to gold */
+}
+
+.price-container {
+    display: flex !important;
+    gap: 20px !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+}
+
+.price-change {
+    font-weight: 900 !important;
+}
+
+.current-price {
+    margin-top: 0px !important;
+    font-weight: 900 !important;
+}
+
+.home-heading-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.show-more {
+    margin-top: 0px !important;
+}
+
+.exchange-image {
+    margin: 0px 10px !important;
+}
+
+.search-crypto {
+    margin: 20px auto 30px auto;
+    width: 250px;
+}
+
+.crypto-card-container {
+    min-height: 65vh !important;
+}
+
+.crypto-card {
+    min-width: 250px;
+}
+
+.crypto-card .crypto-image {
+    width: 35px;
+}
+
+.select-timeperiod {
+    width: 200px !important;
+    margin-top: 20px !important;
+}
+
+.footer {
+    background-color: #000000;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+}
