@@ -6,12 +6,14 @@ import App from './App.jsx';
 import { BrowserRouter } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import store from './app/store.js';
+import { HashRouter } from 'react-router-dom';
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
+    <HashRouter>
     <Provider store={store}>
             <App />
     </Provider>
-    </BrowserRouter>
+    </HashRouter>
   </StrictMode>
 );
